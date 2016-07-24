@@ -1,6 +1,10 @@
 function powerOf(num)
 {
   var counter = 0;
+  if (num = 0)
+  {
+    return -1;
+  }
   while(num > 1)
   {
     num = num/10;
@@ -11,7 +15,7 @@ function powerOf(num)
   }
   if (counter < 3)
   {
-    return 0;
+    return -1;
   }
   else if (counter < 6 && counter >= 3)
   {
@@ -51,8 +55,8 @@ function testResults (form)
     {
       document.getElementById("answer").innerHTML = ("Please enter a number greater than zero for Step 3 and 4");
       document.getElementById("answer").style.color = "rgb(255,100,100)";
-      window.scrollTo(0, 100);
       form.totalWordsOnPage.value = "";
+      window.scrollTo(0, 100);
       form.totalPages.value = "";
       check = false;
     }
@@ -69,10 +73,16 @@ function testResults (form)
       var totalWords = totalWordsOnPage*totalPages;
       var totalKnownWords = Math.floor(percentKnown*totalWords);
       var numberOfThousands = powerOf(totalKnownWords);
+        if (numberOfThousands == -1)
+        {
+          document.getElementById("answer").innerHTML = ("You know " + totalKnownWords + " words!");
+          document.getElementById("answer").style.color = "rgb(200,223,230)";
+          window.scrollTo(0, 100);
+          return;
+        }
       if (numberOfThousands == null || numberOfThousands == "")
       {
-        document.getElementById("answer").innerHTML = ("You know an unreasonably large amount of words."
-        + " Like way too many words for one person.");
+        document.getElementById("answer").innerHTML = ("You know an unreasonably large amount of words.");
         document.getElementById("answer").style.color = "rgb(200,90,110)";
         window.scrollTo(0, 100);
         return;
@@ -98,6 +108,7 @@ function testResults (form)
         {
           //alert(toAdd*Math.pow(1000,i));
           storageArray[counter] = toAdd*Math.pow(1000,i);
+          
         }
         else
         {
