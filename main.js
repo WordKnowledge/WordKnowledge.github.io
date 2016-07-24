@@ -43,7 +43,7 @@ function testResults (form)
     {
       document.getElementById("answer").innerHTML = ("Please enter a number between 1 and 25 for step 2.");
       document.getElementById("answer").style.color = "rgb(255,100,100)";
-      window.scrollTo(0, 30);
+      window.scrollTo(0, 100);
       form.numberRight.value = "";
       check = false;
     }
@@ -51,7 +51,7 @@ function testResults (form)
     {
       document.getElementById("answer").innerHTML = ("Please enter a number greater than zero for Step 3 and 4");
       document.getElementById("answer").style.color = "rgb(255,100,100)";
-      window.scrollTo(0, 30);
+      window.scrollTo(0, 100);
       form.totalWordsOnPage.value = "";
       form.totalPages.value = "";
       check = false;
@@ -60,7 +60,7 @@ function testResults (form)
     {
       document.getElementById("answer").innerHTML = ("Fill in every box with an appropriate value before submitting.");
       document.getElementById("answer").style.color = "rgb(255,100,100)";
-      window.scrollTo(0, 30);
+      window.scrollTo(0, 100);
       check = false;
     }
     if (check == true)
@@ -74,7 +74,7 @@ function testResults (form)
         document.getElementById("answer").innerHTML = ("You know an unreasonably large amount of words."
         + " Like way too many words for one person.");
         document.getElementById("answer").style.color = "rgb(200,90,110)";
-        window.scrollTo(0, 30);
+        window.scrollTo(0, 100);
         return;
       }
       var outputString = "";
@@ -138,6 +138,6 @@ function testResults (form)
       }
       document.getElementById("answer").innerHTML = ("You know " + outputString + " words!");
       document.getElementById("answer").style.color = "rgb(200,225,230)";
-      window.scrollTo(0, 30);
+      window.scrollTo(0, 100);
     }
 }
