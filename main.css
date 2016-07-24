@@ -39,7 +39,8 @@ body
 
 }
 
-input[type=number], select {
+input[type=number], select
+{
     width: 15%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -49,7 +50,8 @@ input[type=number], select {
     box-sizing: border-box;
 }
 
-input[type=button] {
+input[type=button]
+{
     width: 25%;
     background-color: #4CAF50;
     color: white;
@@ -60,5 +62,13 @@ input[type=button] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover
+{
     background-color: #45a049;
+}
+
+#answer
+  {
+    position:relative;
+    top: -60px;
+  }
