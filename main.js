@@ -41,20 +41,23 @@ function testResults (form)
     var check = true;
     if (numberRight < 0 || numberRight > 25)
     {
-      alert("Please enter a number between 1 and 25 for step 2.");
+      document.getElementById("answer").innerHTML = ("Please enter a number between 1 and 25 for step 2.");
+      document.getElementById("answer").style.color = "rgb(255,100,100)";
       form.numberRight.value = "";
       check = false;
     }
     if (totalWordsOnPage < 0 || totalPages < 0)
     {
-      alert("Please enter a number greater than zero for Step 3 and 4");
+      document.getElementById("answer").innerHTML = ("Please enter a number greater than zero for Step 3 and 4");
+      document.getElementById("answer").style.color = "rgb(255,100,100)";
       form.totalWordsOnPage.value = "";
       form.totalPages.value = "";
       check = false;
     }
     if (totalPages == null || totalPages == "")
     {
-      alert("Fill in every box with an appropriate value before submitting.");
+      document.getElementById("answer").innerHTML = ("Fill in every box with an appropriate value before submitting.");
+      document.getElementById("answer").style.color = "rgb(255,100,100)";
       check = false;
     }
     if (check == true)
@@ -65,8 +68,9 @@ function testResults (form)
       var numberOfThousands = powerOf(totalKnownWords);
       if (numberOfThousands == null || numberOfThousands == "")
       {
-        alert("You know an unreasonably large amount of words."
+        document.getElementById("answer").innerHTML = ("You know an unreasonably large amount of words."
         + " Like way too many words for one person.");
+        document.getElementById("answer").style.color = "rgb(200,90,110)";
         return;
       }
       var outputString = "";
@@ -128,6 +132,7 @@ function testResults (form)
         }
         counter++;
       }
-      alert("You know " + outputString + " words!");
+      document.getElementById("answer").innerHTML = ("You know " + outputString + " words!");
+      document.getElementById("answer").style.color = "rgb(200,225,230)";
     }
 }
