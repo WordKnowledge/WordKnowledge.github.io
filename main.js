@@ -1,21 +1,17 @@
 function powerOf(num)
 {
   var counter = 0;
-  if (num = 0)
-  {
-    return -1;
-  }
   while(num > 1)
   {
     num = num/10;
-    if (num > 1)
+    if (num >= 1)
     {
       counter = counter + 1;
     }
   }
   if (counter < 3)
   {
-    return -1;
+    return 0;
   }
   else if (counter < 6 && counter >= 3)
   {
@@ -33,6 +29,11 @@ function powerOf(num)
   {
     return 4;
   }
+  else
+  {
+      return 5;
+  }
+
 
 }
 
@@ -43,6 +44,13 @@ function testResults (form)
     var totalWordsOnPage = form.totalWords.value;
     var totalPages = form.totalPages.value;
     var check = true;
+    if (numberRight % 1 != 0 || totalWordsOnPage % 1 != 0 || totalPages % 1 != 0)
+    {
+      document.getElementById("answer").innerHTML = ("Please enter whole number integers for every box.");
+      document.getElementById("answer").style.color = "rgb(255,100,100)";
+      window.scrollTo(0, 100);
+      check = false;
+    }
     if (numberRight < 0 || numberRight > 25)
     {
       document.getElementById("answer").innerHTML = ("Please enter a number between 1 and 25 for step 2.");
@@ -55,12 +63,12 @@ function testResults (form)
     {
       document.getElementById("answer").innerHTML = ("Please enter a number greater than zero for Step 3 and 4");
       document.getElementById("answer").style.color = "rgb(255,100,100)";
-      form.totalWordsOnPage.value = "";
       window.scrollTo(0, 100);
+      form.totalWordsOnPage.value = "";
       form.totalPages.value = "";
       check = false;
     }
-    if (totalPages == null || totalPages == "")
+    if (totalPages == null || totalPages == "" || totalWordsOnPage == null || totalWordsOnPage == "" || numberRight == null || numberRight == "")
     {
       document.getElementById("answer").innerHTML = ("Fill in every box with an appropriate value before submitting.");
       document.getElementById("answer").style.color = "rgb(255,100,100)";
@@ -73,14 +81,12 @@ function testResults (form)
       var totalWords = totalWordsOnPage*totalPages;
       var totalKnownWords = Math.floor(percentKnown*totalWords);
       var numberOfThousands = powerOf(totalKnownWords);
-        if (numberOfThousands == -1)
-        {
-          document.getElementById("answer").innerHTML = ("You know " + totalKnownWords + " words!");
-          document.getElementById("answer").style.color = "rgb(200,223,230)";
-          window.scrollTo(0, 100);
-          return;
-        }
-      if (numberOfThousands == null || numberOfThousands == "")
+      if (totalKnownWords == 1000000)
+      {
+        alert("Easter Egg Found!");
+        window.open("https://www.youtube.com/watch?v=PA7vEIj6Lzk");
+      }
+      if (numberOfThousands == 5)
       {
         document.getElementById("answer").innerHTML = ("You know an unreasonably large amount of words.");
         document.getElementById("answer").style.color = "rgb(200,90,110)";
@@ -96,19 +102,15 @@ function testResults (form)
         if (i==numberOfThousands)
         {
            var toAdd = Math.floor(totalKnownWords/(Math.pow(1000,i)));
-           //alert(toAdd);
         }
         else
         {
           var toAdd = Math.floor((totalKnownWords % storageArray[counter-1])/Math.pow(1000,i));
-          //alert(toAdd);
         }
 
         if (i == numberOfThousands)
         {
-          //alert(toAdd*Math.pow(1000,i));
           storageArray[counter] = toAdd*Math.pow(1000,i);
-          
         }
         else
         {
