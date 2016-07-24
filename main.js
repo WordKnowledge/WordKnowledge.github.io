@@ -63,6 +63,12 @@ function testResults (form)
       var totalWords = totalWordsOnPage*totalPages;
       var totalKnownWords = Math.floor(percentKnown*totalWords);
       var numberOfThousands = powerOf(totalKnownWords);
+      if (numberOfThousands == null || numberOfThousands == "")
+      {
+        alert("You know an unreasonably large amount of words."
+        + " Like way too many words for one person.");
+        return;
+      }
       var outputString = "";
       var storageArray = [];
       var counter = 0;
