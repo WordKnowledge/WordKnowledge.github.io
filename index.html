@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Number Estimator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="main.js">
+    </script>
+</head>
+<body>
+
+  <div id="header">
+    <h1>Estimate the number of words that you know</h1>
+  </div>
+
+  <div id="Paragraph">
+    <p>How many words do you know in English or another language? You can get a rough idea by filling the form below,
+      using word and page counts from a dictionary. Insofar as the resulting estimate is realistic, it will actually
+      be an estimate of how many words you know from that dictionary, of course! To estimate the number of words you
+      know in a LANGUAGE, you would need an unabridged dictionary supplemented with lists of words that probably would
+      not be in a dictionary, such as proper names that you know that come from places where the language you are
+      testing is not the language of the communities.</p>
+  </div>
+  <div id="header2">
+    <h2>Estimate the number of words that you know</h2>
+  </div>
+  <form id="wordForm" name="wordForm" method="GET">
+    <pre style=font-family:"Helvetica">
+    1) Get a dictionary with a language of your choice.
+
+    2) Look at the first word on each of 25 randomly selected pages and
+    enter the number of words you know from those 25 in the box below.
+    <input type="number" name="numberRight" value="">
+
+    3) Enter the total number of words from a randomly selected page.
+    <input type="number" name="totalWords" value="">
+
+    4) Enter the total number of pages in your dictionary.
+    <input type="number" name="totalPages" value="">
+
+    5) Hit Submit once you have entered values into all the boxes above.
+
+  <input type="button" name="button" Value="Submit" onClick="testResults(this.form)">
+
+  </form>
+
+
+
+</div>
+
+
+</html>
